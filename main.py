@@ -4,7 +4,7 @@ from app.routes import properties, contact, content
 
 def main():
 
-    app.register_blueprint(properties.properties_routes)
+    app.register_blueprint(properties.properties_routes, url_prefix="/casas")
     app.register_blueprint(contact.contact_routes      )
     app.register_blueprint(content.content_routes      )
 
