@@ -122,3 +122,69 @@ class House_dal():
         )    
         res = {str(i):v for i,v in enumerate(properties)}
         return res
+
+    
+    def update_info_house(self, id, photo, city, state, zip_code, price,
+    rooms, bathrooms, longitud, latitude, descript, status, type):
+
+        query = f'''
+        UPDATE houses SET 
+        'photo'     = '{photo}'     ,
+        'city'      = '{city}'      ,
+        'state'     = '{state}'     ,
+        'zip_code'  = '{zip_code}'  ,
+        'price'     = '{price}'     ,
+        'rooms'     = '{rooms}'     ,
+        'bathrooms' = '{bathrooms}' ,
+        'longitud'  = '{longitud}'  ,
+        'latitude'  = '{latitude}'  ,
+        'descript'  = '{descript}'  ,
+        'status'    = '{status}'    ,
+        'type'      = '{type}' 
+        WHERE id = {id};
+        '''
+
+        self.cursor.execute(query)
+
+        self.cursor.commit()
+
+        res = self.cursor.rowcount
+
+        return res
+    
+    def update_status_house(self, id, status):
+
+        query = f'''
+        UPDATE houses SET 
+        'status' = '{status}'
+        WHERE id = {id};
+        '''
+
+        self.cursor.execute(query)
+
+        self.cursor.commit()
+
+        res = self.cursor.rowcount
+
+        return res
+    
+    def insert_house(self, photo, city, state, zip_code, price,
+    rooms, bathrooms, longitud, latitude, descript, status, type):
+
+        query = f'''
+        INSERT INTO houses 
+        (photo, city, state, zip_code, price, rooms, bathrooms, 
+        longituud, latitude, descript, status, type) VALUES (
+            {photo}, {city}, {state}, {zip_code}, {price}, 
+            {rooms}, {bathrooms}, {longitud}, {latitude}, {descript}, 
+            {status}, {type}
+            );
+        '''
+
+        self.cursor.execute(query)
+
+        self.cursor.commit()
+
+        res = self.cursor.rowcount
+        
+        return res
