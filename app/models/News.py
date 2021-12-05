@@ -1,6 +1,6 @@
 class News():
     
-     def __init__(self, id, title, description):
-        self.id = id
-        self.photo = title
-        self.city = description
+     def __init__(self, **kwargs):
+        self.id:int            = kwargs.get("id",            -1)
+        self.title:str         = kwargs.get("title",         "")
+        self.description:str   = kwargs.get("description",   "")
