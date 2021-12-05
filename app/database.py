@@ -1,7 +1,7 @@
 import mysql.connector
 from typing import List
 
-from app.config import DBUSERNAME, DBPASSWORD, DBNAME
+from app.config import DBUSERNAME, DBPASSWORD, DBNAME, DBHOST
 
 def singleton(class_):
     instances = {}
@@ -19,10 +19,10 @@ class Database():
     
     def __init__(self):
         self.client = mysql.connector.connect(
-            host="127.0.0.1",
-            user= DBUSERNAME,
-            password= DBPASSWORD,
-            database= DBNAME,
+            host=      DBHOST,
+            user=      DBUSERNAME,
+            password=  DBPASSWORD,
+            database=  DBNAME,
         )
 
         self.cursor = self.client.cursor()

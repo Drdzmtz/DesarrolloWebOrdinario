@@ -1,4 +1,3 @@
-from types import MethodType
 from flask import Blueprint, jsonify
 
 from app.controllers import get_properties

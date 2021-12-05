@@ -1,47 +1,26 @@
-from app.database import Database
-from app.models.House import House
+# from app.database import Database
+# from app.models.House import House
 
-db = Database()
-cursor = db.cursor
+# db = Database()
+# cursor = db.cursor
+
+from app.models.House_dal import House_dal
 
 def get_properties(id:int = -1):
     
-    get_property = f'''
-    SELECT *
-    FROM houses
-    WHERE id = {id};
-    '''
+    db = House_dal()
 
-    get_properties = f'''
-    SELECT *
-    FROM houses;
-    '''
+    if id != -1:
+        res = db.get_by_id(id)
+        if isinstance(res, str):
+            res = {0: res}
 
-    query = get_properties if id == -1 else get_property
-    cursor.execute(query)
+        return res
 
-    res = db.process_query_result(cursor)
-    
-    properties = []
-    for row in res:
-        properties.append(
-            House(
-                id       = row["id"],
-                photo    = row["photo"],
-                city     = row["city"],
-                state    = row["state"],
-                zip_code = row["zip_code"],
-                price    = row["price"],
-                rooms    = row["rooms"],
-                bathroom = row["bathrooms"],
-                longitud = row["longitude"],
-                latitude = row["latitude"],
-                descript = row["description"],
-                status   = row["status"],
-                type     = row["type"],
-            ).to_dict()
-        )    
+    res = db.get_all()
+    if isinstance(res, str):
+        res = {0: res}
 
-    res = {str(i):v for i,v in enumerate(properties)}
+        return res
 
     return res
