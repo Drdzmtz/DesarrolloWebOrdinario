@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
+</head>
+<body>
+	<!-- MAIN NAVBAR PAGE -->
+	<nav class="b-navbar">
+		<i id="bmenu-icon" class="material-icons">menu</i>
+
+		<img src="{{ url_for('static', filename='images/large-logo.png') }}">
+
+		<div class="b-phone-info">
+			<i class="material-icons">local_phone</i>
+			<i>Llama al: </i>
+			<i>844 191 6266</i>
+		</div>
+
+		<ul class="bmenu-options">
+			<li class="selected">Inicio</li>
+			<li>La Compañía</li>
+			<li>Servicios</li>
+			<li>Requisitos</li>
+			<li>Contactos</li>
+		</ul>
+
+		<ul class="b-basic-options">
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</li>
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin</li>
+		</ul>
+	</nav>
+
+	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+</body>
+</html>
