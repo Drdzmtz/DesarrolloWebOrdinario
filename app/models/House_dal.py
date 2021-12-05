@@ -124,67 +124,110 @@ class House_dal():
         return res
 
     
-    def update_info_house(self, id, photo, city, state, zip_code, price,
-    rooms, bathrooms, longitud, latitude, descript, status, type):
+    def update_info_house(self, form:dict):
+
+        house = House(
+            id=             form.get("id", -1),
+            photo=          form.get("photo", ""),
+            city=           form.get("city", ""),
+            state=          form.get("state", ""),
+            zip_code=       form.get("zip_code", ""),
+            price=          form.get("price", ""),
+            rooms=          form.get("rooms", -1),
+            bathrooms=      form.get("bathrooms", -1),
+            longitude=      form.get("longitude", -1.0),
+            latitude=       form.get("latitude", -1.0),
+            description=    form.get("description", ""),
+            status=         form.get("status", ""),
+            type=           form.get("type", ""),
+        )
 
         query = f'''
-        UPDATE houses SET 
-        'photo'     = '{photo}'     ,
-        'city'      = '{city}'      ,
-        'state'     = '{state}'     ,
-        'zip_code'  = '{zip_code}'  ,
-        'price'     = '{price}'     ,
-        'rooms'     = '{rooms}'     ,
-        'bathrooms' = '{bathrooms}' ,
-        'longitud'  = '{longitud}'  ,
-        'latitude'  = '{latitude}'  ,
-        'descript'  = '{descript}'  ,
-        'status'    = '{status}'    ,
-        'type'      = '{type}' 
-        WHERE id = {id};
+        UPDATE houses 
+        SET 
+        photo        = '{house.photo}'        ,
+        city         = '{house.city}'         ,
+        state        = '{house.state}'        ,
+        zip_code     = '{house.zip_code}'     ,
+        price        =  {house.price}         ,
+        rooms        =  {house.rooms}         ,
+        bathrooms    =  {house.bathrooms}     ,
+        longitude    =  {house.longitude}     ,
+        latitude     =  {house.latitude}      ,
+        description  = '{house.description}'  ,
+        status       = '{house.status}'       ,
+        type         = '{house.type}' 
+        WHERE id = {house.id};
         '''
 
-        self.cursor.execute(query)
-
-        self.cursor.commit()
-
-        res = self.cursor.rowcount
-
+        try:
+            self.cursor.execute(query)
+        except Exception as e: return str(e)
+       
+        self.db.client.commit()
+        res = house.id
+        
         return res
     
     def update_status_house(self, id, status):
 
         query = f'''
         UPDATE houses SET 
-        'status' = '{status}'
+        status = '{status}'
         WHERE id = {id};
         '''
 
-        self.cursor.execute(query)
+        try:
+            self.cursor.execute(query)
+        except Exception as e: return str(e)
 
-        self.cursor.commit()
-
-        res = self.cursor.rowcount
+        self.db.client.commit()
+        res = id
 
         return res
     
-    def insert_house(self, photo, city, state, zip_code, price,
-    rooms, bathrooms, longitud, latitude, descript, status, type):
+    def insert_house(self, form:dict):
+
+        house = House(
+            photo=          form.get("photo", ""),
+            city=           form.get("city", ""),
+            state=          form.get("state", ""),
+            zip_code=       form.get("zip_code", ""),
+            price=          form.get("price", ""),
+            rooms=          form.get("rooms", -1),
+            bathrooms=      form.get("bathrooms", -1),
+            longitude=      form.get("longitude", -1.0),
+            latitude=       form.get("latitude", -1.0),
+            description=    form.get("description", ""),
+            status=         form.get("status", ""),
+            type=           form.get("type", ""),
+        )
 
         query = f'''
         INSERT INTO houses 
         (photo, city, state, zip_code, price, rooms, bathrooms, 
-        longituud, latitude, descript, status, type) VALUES (
-            {photo}, {city}, {state}, {zip_code}, {price}, 
-            {rooms}, {bathrooms}, {longitud}, {latitude}, {descript}, 
-            {status}, {type}
+        longitude, latitude, description, status, type) 
+        VALUES (
+            "{house.photo}", 
+            "{house.city}", 
+            "{house.state}", 
+            "{house.zip_code}", 
+            {house.price}, 
+            {house.rooms}, 
+            {house.bathrooms}, 
+            {house.longitude}, 
+            {house.latitude}, 
+            "{house.description}", 
+            "{house.status}", 
+            "{house.type}"
             );
         '''
 
-        self.cursor.execute(query)
-
-        self.cursor.commit()
-
-        res = self.cursor.rowcount
+        try:
+            self.cursor.execute(query)
+        except Exception as e: return str(e)
+       
+        self.db.client.commit()
+        res:int = self.cursor.rowcount
         
         return res

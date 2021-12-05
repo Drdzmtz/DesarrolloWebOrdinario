@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 
-from app.controllers import get_properties
+from app.controllers import get_properties, add_properties, update_properties
 
 properties_routes = Blueprint("properties_routes", __name__)
 
@@ -15,3 +15,22 @@ def house_by_id(id:int):
     properties = get_properties.get_properties(id= id)
 
     return jsonify(**properties)
+
+@properties_routes.route("/", methods=["POST"])
+def houses_post():    
+    res = add_properties.add_properties(request.form)
+
+    return jsonify(**res)
+
+
+@properties_routes.route("/", methods=["PUT"])
+def houses_put():    
+    res = update_properties.update_properties(request.form)
+
+    return jsonify(**res)
+
+@properties_routes.route("/", methods=["PATCH"])
+def houses_patch():    
+    res = update_properties.patch_properties(request.form)
+
+    return jsonify(**res)
