@@ -14,7 +14,7 @@ class Custom_PDF(FPDF):
         self.rect(0, 0, 10, 100, "F")
 
 
-        self.image('app/static/images/logo.png', 20, 20, 109.25, 10.25)
+        self.image('app/static/images/large-logo.png', 20, 20, 109.25, 10.25)
 
     def footer(self):
         self.set_fill_color(142, 192, 219)
