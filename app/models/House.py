@@ -1,3 +1,8 @@
+from functools import lru_cache
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent="ordinario_desarrollo_web")
+
 class House():
     
    def __init__(self, **kwargs):
@@ -15,19 +20,24 @@ class House():
       self.status:str        = kwargs.get("status",        "")
       self.type:str          = kwargs.get("type",          "")
 
+   @property
+   @lru_cache(maxsize= 5, typed=False)
+   def address(self) -> str:
+      return geolocator.reverse(f"{self.longitude}, {self.latitude}").address
+
    def to_dict(self):
       return {
-         "id":    self.id,
-         "photo": self.photo,
-         "city": self.city,
-         "state": self.state,
-         "zip_code": self.zip_code,
-         "price": self.price,
-         "rooms": self.rooms,
-         "bathrooms": self.bathrooms,
-         "longitude": self.longitude,
-         "latitude": self.latitude,
+         "id":          self.id,
+         "photo":       self.photo,
+         "city":        self.city,
+         "state":       self.state,
+         "zip_code":    self.zip_code,
+         "price":       self.price,
+         "rooms":       self.rooms,
+         "bathrooms":   self.bathrooms,
+         "longitude":   self.longitude,
+         "latitude":    self.latitude,
          "description": self.description,
-         "status": self.status,
-         "type": self.type,
+         "status":      self.status,
+         "type":        self.type,
       }
