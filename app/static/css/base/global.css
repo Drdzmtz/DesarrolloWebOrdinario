@@ -1,0 +1,18 @@
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+a, a:visited {
+	color: inherit;
+	text-decoration-line: inherit;
+}
+
+body {
+	margin: 0;
+
+	--b-bg-color: rgb(16, 71, 107);
+	--b-border-color: rgb(24, 48, 70);
+	--b-bg-scolor: rgb(61, 100, 146);
+}

@@ -7,10 +7,13 @@
 	<title></title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/global.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/footer.css') }}">
 </head>
 <body>
-	<!-- MAIN NAVBAR PAGE -->
+	<!-- MAIN NAV PAGE -->
 	<nav class="b-navbar">
 		<i id="bmenu-icon" class="material-icons">menu</i>
 
@@ -23,19 +26,35 @@
 		</div>
 
 		<ul class="bmenu-options">
-			<li class="selected">Inicio</li>
-			<li>La Compañía</li>
-			<li>Servicios</li>
-			<li>Requisitos</li>
-			<li>Contactos</li>
+			<li class="selected"><a href="#">Inicio</a></li>
+			<li><a href="#">La Compañía</a></li>
+			<li><a href="#">Servicios</a></li>
+			<li><a href="#">Requisitos</a></li>
+			<li><a href="#">Contactos</a></li>
 		</ul>
 
 		<ul class="b-basic-options">
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</li>
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin</li>
+			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</a></li>
+			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</a></li>
+			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin </a></li>
 		</ul>
 	</nav>
+
+	<footer class="b-footer">
+		<img src="{{ url_for('static', filename='images/logo.png') }}">
+
+		<ul class="b-footer-options">
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Compra</a></li>
+			<li><a href="#">Construir</a></li>
+			<li><a href="#">Venta</a></li>
+			<li><a href="#">Mudanzas</a></li>
+			<li><a href="#">Seguros</a></li>
+			<li><a href="#">Contactos</a></li>
+		</ul>
+
+		<i>Bienes Raíces MultiCasa © 2012</i>
+	</footer>
 
 	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
 </body>
