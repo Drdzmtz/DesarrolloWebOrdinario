@@ -15,7 +15,7 @@ def main():
 
 
 if __name__ == "__main__":
-    app = Flask(__name__, template_folder="./app/views")
+    app = Flask(__name__, template_folder="./app/views", static_folder="./app/static")
     main()
 
     app.run(
