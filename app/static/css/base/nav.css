@@ -7,6 +7,7 @@
 	display: grid;
 	grid-template-columns: auto auto 210px;
 	align-items: center;
+	grid-column: 1 / span 2;
 }
 
 .b-navbar #bmenu-icon {
@@ -128,6 +129,30 @@
 	height: 10px;
 }
 
+/* ===== ASIDE & FOOTER OPTIONS IN NAVBAR ===== */
+.b-navbar > ul.b-af-options {
+	list-style: none;
+	padding-top: 10px;
+	color: lightblue;	
+	grid-template-columns: repeat(6, auto);
+	justify-content: center;
+	column-gap: 8px;
+	cursor: pointer;
+	text-decoration-line: underline;
+	grid-column: 1 / span 3;
+
+	/* mobile only */
+	display: none;
+}
+
+.b-navbar > ul.b-af-options.show {
+	display: grid;
+}
+
+.b-navbar > ul.b-af-options li:hover {
+	color: white;
+}
+
 @keyframes bnav-show-list {
 	from {
 		display: block;
@@ -149,6 +174,10 @@
 
 	.b-navbar > ul.bmenu-options li {
 		width: 130px;
+	}
+
+	.b-navbar > ul.b-af-options.show {
+		display: none;
 	}
 }
 
@@ -186,5 +215,9 @@
 	.b-navbar > ul.b-basic-options {
 		display: grid;
 		grid-column: 3 / 4;
+	}
+
+	.b-navbar > ul.b-af-options.show {
+		display: none;
 	}
 }

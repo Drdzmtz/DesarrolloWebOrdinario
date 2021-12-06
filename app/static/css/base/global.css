@@ -4,15 +4,47 @@
 	margin: 0;
 }
 
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+	border-radius: 2.5px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
 a, a:visited {
 	color: inherit;
 	text-decoration-line: inherit;
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
+	display: grid;
+	grid-template-columns: auto 210px;
+	grid-template-rows: min-content auto min-content;
 
 	--b-bg-color: rgb(16, 71, 107);
 	--b-border-color: rgb(24, 48, 70);
 	--b-bg-scolor: rgb(61, 100, 146);
+}
+
+section.b-content {
+	overflow-y: auto;
 }

@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 	// show options by mobile menu icon
 	document.querySelector('#bmenu-icon').addEventListener('click', () => {
 		document.querySelectorAll(
-			'.b-navbar > ul.bmenu-options, .b-navbar > ul.b-basic-options'
+			`.b-navbar > ul.bmenu-options, .b-navbar > ul.b-basic-options, .b-navbar > ul.b-af-options`
 		).forEach(menu => {
 			if(menu.classList.contains('show'))
 				menu.classList.remove('show');
@@ -11,4 +11,6 @@ window.addEventListener('load', () => {
 				menu.classList.add('show');
 		});
 	});
+
+	// show options 
 });

@@ -10,6 +10,7 @@
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/global.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/aside.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/footer.css') }}">
 </head>
 <body>
@@ -26,31 +27,95 @@
 		</div>
 
 		<ul class="bmenu-options">
-			<li class="selected"><a href="#">Inicio</a></li>
-			<li><a href="#">La Compañía</a></li>
-			<li><a href="#">Servicios</a></li>
-			<li><a href="#">Requisitos</a></li>
-			<li><a href="#">Contactos</a></li>
+			<li class="selected">Inicio</li>
+			<li>La Compañía</li>
+			<li>Servicios</li>
+			<li>Requisitos</li>
+			<li>Contactos</li>
 		</ul>
 
 		<ul class="b-basic-options">
-			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</a></li>
-			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</a></li>
-			<li><a href="#"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin </a></li>
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</li>
+			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin </li>
+		</ul>
+
+		<ul class="b-af-options">
+			<li>Compra</li>
+			<li>Construir</li>
+			<li>Venta</li>
+			<li>Mudanzas</li>
+			<li>Seguros</li>
 		</ul>
 	</nav>
 
+	<!-- PAGE CONTENT -->
+	<section class="b-content">
+		{% block body %}{% endblock %}
+	</section>
+
+	<!-- MAIN ASIDE -->
+	<aside class="b-aside">
+		<ul class="b-aside-options">
+			<li>Compra</li>
+			<li>Construir</li>
+			<li>Venta</li>
+			<li>Mudanzas</li>
+			<li>Seguros</li>
+			<li>Contactos</li>
+		</ul>
+
+		<form class="b-aform" action="" method="get">
+			<img src="{{ url_for('static', filename='images/aform-logo.png') }}">
+
+			<div class="b-form-control b-controls-2">
+				<label for="">Ciudad y Estado</label>
+				<input type="text" name="city" placeholder="No importa">
+				<input type="text" name="state" placeholder="No importa">
+			</div>
+
+			<div class="b-form-control">
+				<label for="">Código Postal</label>
+				<input type="number" name="zip_code" placeholder="No importa">
+			</div>
+
+			<div class="b-form-control b-controls-2">
+				<label for="">Rango de Precios</label>
+				<input type="number" name="min_price" placeholder="Precio minimo">
+				<input type="number" name="max_price" placeholder="Precio máximo">
+			</div>
+
+			<div class="b-form-control">
+				<label for="">Número de Recámaras</label>
+				<input type="number" name="rooms" placeholder="No importa">
+			</div>
+
+			<div class="b-form-control">
+				<label for="">Número de Baños</label>
+				<input type="number" name="bathrooms" placeholder="No importa">
+			</div>
+
+			<button>Buscar</button>
+		</form>
+
+		<div class="b-news">
+			<h6>Información de Última Hora</h6>
+			<ul></ul>
+		</div>
+	</aside>
+
+	<!-- MAIN FOOTER -->
 	<footer class="b-footer">
 		<img src="{{ url_for('static', filename='images/logo.png') }}">
 
 		<ul class="b-footer-options">
-			<li><a href="#">Inicio</a></li>
-			<li><a href="#">Compra</a></li>
-			<li><a href="#">Construir</a></li>
-			<li><a href="#">Venta</a></li>
-			<li><a href="#">Mudanzas</a></li>
-			<li><a href="#">Seguros</a></li>
-			<li><a href="#">Contactos</a></li>
+			<li>Inicio</li>
+			<li>Compra</li>
+			<li>Construir</li>
+			<li>Venta</li>
+			<li>Mudanzas</li>
+			<li>Seguros</li>
+			<li>Contactos</li>
 		</ul>
 
 		<i>Bienes Raíces MultiCasa © 2012</i>

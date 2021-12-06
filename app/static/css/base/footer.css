@@ -9,8 +9,7 @@
 	padding: 5px;
 	align-items: center;
 	user-select: none;
-	position: absolute;
-	bottom: 0;
+	grid-column: 1 / span 2;
 
 	/* Tablet & PC only */
 }
