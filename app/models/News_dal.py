@@ -20,9 +20,9 @@ class News_dal():
             res = self.db.process_query_result(self.cursor)
         except Exception as e: return str(e)
 
-        properties = []
+        news = []
         for row in res:
-            properties.append(
+            news.append(
                 News(
                     id          = row["id"],
                     title       = row["title"],
@@ -30,7 +30,15 @@ class News_dal():
                 ).to_dict()
         )    
 
-        res = {str(i):v for i,v in enumerate(properties)}
+        if len(news) == 0:
+            news.append(
+                News(
+                 title= "Sin Noticias",
+                 description= "Lo mantendremos informado :)"   
+                ).to_dict()
+            )
+
+        res = {str(i):v for i,v in enumerate(news)}
 
         return res
     
@@ -42,8 +50,7 @@ class News_dal():
         )
 
         query = f'''
-        INSERT INTO news 
-        (title, description) 
+        INSERT INTO news (title, description) 
         VALUES (
             "{news.title}", 
             "{news.description}"
