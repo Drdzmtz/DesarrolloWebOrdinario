@@ -33,9 +33,6 @@ class PDF():
         pdf.set_margins(20, 40, 20)
         pdf.add_page()
 
-        x = pdf.get_x()
-        y = pdf.get_y()
-
         pdf.image(self.house.photo, 20, 50, 80, 80)
 
         pdf.set_font('Arial', 'B', 30)
@@ -98,8 +95,6 @@ class PDF():
         pdf.set_x(pdf.get_x()+5)
         pdf.cell(40, 10, f'Cuartos:  {self.house.rooms}', 0, 2, "L", False,  "")
         pdf.cell(40, 10, f' Baños:    {self.house.bathrooms}', 0, 2, "L", False,  "")
-
-
 
         output:str = pdf.output(f'Casa_{self.house.id}.pdf', 'S')
         
