@@ -4,14 +4,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>{% block title %} Bienes Raices MultiCasa {% endblock %}</title>
 
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/global.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/aside.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base/footer.css') }}">
+
+	{% block styles %}{% endblock %}
 </head>
 <body>
 	<!-- MAIN NAV PAGE -->
@@ -81,8 +84,8 @@
 
 			<div class="b-form-control b-controls-2">
 				<label for="">Rango de Precios</label>
-				<input type="number" name="min_price" placeholder="Precio minimo">
-				<input type="number" name="max_price" placeholder="Precio máximo">
+				<input type="number" name="min_price" placeholder="Minimo">
+				<input type="number" name="max_price" placeholder="Máximo">
 			</div>
 
 			<div class="b-form-control">
@@ -95,7 +98,7 @@
 				<input type="number" name="bathrooms" placeholder="No importa">
 			</div>
 
-			<button>Buscar</button>
+			<button type="submit">Buscar</button>
 		</form>
 
 		<div class="b-news">
@@ -122,5 +125,7 @@
 	</footer>
 
 	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+
+	{% block js %}{% endblock %}
 </body>
 </html>

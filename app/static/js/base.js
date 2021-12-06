@@ -12,5 +12,13 @@ window.addEventListener('load', () => {
 		});
 	});
 
-	// show options 
+	// disable inputs with empty values in the aside's form
+	document.querySelector('.b-aside > .b-aform').addEventListener('submit', () => {
+		document.querySelectorAll('.b-aside > .b-aform input').forEach(elm => {
+			elm.value = elm.value.trim();
+			
+			if (elm.value === '')
+				elm.disabled = true;
+		});
+	});
 });

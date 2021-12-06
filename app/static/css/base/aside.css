@@ -9,8 +9,8 @@
 	/* PC only */
 }
 
-.b-aside a {
-	display: block;
+.b-aform > img {
+	width: 100%;
 }
 
 /* ===== ASIDE MAIN OPTIONS ===== */
@@ -40,7 +40,6 @@
 	padding: 10px 20px;
 	text-align: center;
 }
-
 
 .b-aside > .b-aform > .b-form-control {
 	display: grid;
