@@ -1,6 +1,5 @@
 from flask import Flask
-
-from app.routes import properties, contact, content, news
+from app.routes import properties, contact, content, news, pdf
 
 def main():
 
@@ -8,6 +7,8 @@ def main():
     app.register_blueprint(contact.contact_routes      )
     app.register_blueprint(content.content_routes      )
     app.register_blueprint(news.news_routes, url_prefix="/news"    )
+    app.register_blueprint(pdf.pdf_routes, url_prefix="/pdf")
+
 
     @app.route("/")
     def index():
