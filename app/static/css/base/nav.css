@@ -1,0 +1,223 @@
+
+.b-navbar {
+	background-color: var(--b-bg-color);
+	padding: 10px;
+	user-select: none;
+	border-bottom: var(--b-border-color) 5px solid;
+	display: grid;
+	grid-template-columns: auto auto 210px;
+	align-items: center;
+	grid-column: 1 / span 2;
+}
+
+.b-navbar #bmenu-icon {
+	display: block;
+	color: white;
+	font-size: 40px;
+	margin: 0 5px;
+	cursor: pointer;
+
+	/* mobile only */
+}
+
+.b-navbar > img {
+	display: block;
+	max-width: 100%;
+
+	/* mobile only */
+	grid-column: 2 / span 2;
+}
+
+/* ===== PHONE INFO ===== */
+.b-navbar > .b-phone-info {
+	text-align: center;
+	background: rgb(184,184,184);
+	background: linear-gradient(180deg, rgba(184,184,184,1) 0%, rgba(113,113,113,1) 100%);
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 16px;
+
+	/* mobile only */
+	display: none;
+}
+
+.b-navbar > .b-phone-info i {
+	font-style: normal;
+	font-weight: bold;
+}
+
+.b-navbar > .b-phone-info i:nth-child(1) {
+	vertical-align: bottom;
+	font-size: 18px;
+}
+
+.b-navbar > .b-phone-info i:nth-child(2) {
+	color: green;
+}
+
+.b-navbar > .b-phone-info i:nth-child(3) {
+	color: var(--b-bg-color);
+}
+
+/* ===== MENU OPTIONS ===== */
+.b-navbar > ul.bmenu-options {
+	list-style: none;
+	padding: 0;
+	margin-top: 10px;
+
+	/* mobile only */
+	grid-column: 1 / span 3;
+	display: none;
+}
+
+.b-navbar > ul.bmenu-options.show {
+	display: block;
+	animation: bnav-show-list 200ms linear;
+}
+
+.b-navbar > ul.bmenu-options li {
+	background-color: rgb(0, 146, 198);
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 2px;
+	padding: 5px;	
+	margin: 5px 0;
+
+	/* mobile only */
+	width: 100%;
+}
+
+.b-navbar > ul.bmenu-options li:hover:not(.selected) {
+	cursor: pointer;
+
+	/* mobile only */
+	transform: scaleX(1.1);
+}
+
+.b-navbar > ul.bmenu-options li.selected {
+	background-color: rgb(0, 105, 145);
+}
+
+/* ===== SECUNDARY MENU OPTIONS ===== */
+.b-navbar > ul.b-basic-options {
+	list-style: none;
+	padding: 0;
+	margin-top: 10px;
+	color: white;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	justify-content: center;
+	column-gap: 10px;
+
+	/* mobile only */
+	display: none;
+	grid-column: 1 / span 3;
+}
+
+.b-navbar > ul.b-basic-options.show {
+	display: grid;
+	animation: bnav-show-list 200ms linear;
+}
+
+.b-navbar > ul.b-basic-options li:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.b-navbar > ul.b-basic-options li img {
+	height: 10px;
+}
+
+/* ===== ASIDE & FOOTER OPTIONS IN NAVBAR ===== */
+.b-navbar > ul.b-af-options {
+	list-style: none;
+	padding-top: 10px;
+	color: lightblue;	
+	grid-template-columns: repeat(6, auto);
+	justify-content: center;
+	column-gap: 8px;
+	cursor: pointer;
+	text-decoration-line: underline;
+	grid-column: 1 / span 3;
+
+	/* mobile only */
+	display: none;
+}
+
+.b-navbar > ul.b-af-options.show {
+	display: grid;
+}
+
+.b-navbar > ul.b-af-options li:hover {
+	color: white;
+}
+
+@keyframes bnav-show-list {
+	from {
+		display: block;
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+/* --- TABLET VERSION --- */
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+	.b-navbar > ul.bmenu-options.show {
+		display: grid;
+		grid-template-columns: repeat(5, auto);
+		justify-content: center;
+		column-gap: 5px;
+	}
+
+	.b-navbar > ul.bmenu-options li {
+		width: 130px;
+	}
+
+	.b-navbar > ul.b-af-options.show {
+		display: none;
+	}
+}
+
+/* --- PC VERSION --- */
+@media screen and (min-width: 1000px) {
+	.b-navbar #bmenu-icon {
+		display: none;
+	}
+
+	.b-navbar > img {
+		grid-column: 1 / span 2;
+	}
+
+	.b-navbar > .b-phone-info {
+		display: block;
+	}
+
+	.b-navbar > ul.bmenu-options,
+	.b-navbar > ul.bmenu-options.show {
+		grid-column: 1 / span 2;
+		display: grid;
+		grid-template-columns: repeat(5, auto);
+		justify-content: start;
+		column-gap: 5px;
+	}
+
+	.b-navbar > ul.bmenu-options li {
+		width: 150px;
+	}
+
+	.b-navbar > ul.bmenu-options li:hover:not(.selected) {
+		transform: scale(1.05);
+	}
+
+	.b-navbar > ul.b-basic-options {
+		display: grid;
+		grid-column: 3 / 4;
+	}
+
+	.b-navbar > ul.b-af-options.show {
+		display: none;
+	}
+}

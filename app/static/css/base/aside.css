@@ -1,0 +1,114 @@
+
+.b-aside {
+	background-color: var(--b-bg-scolor);
+	color: lightcyan;
+	overflow-y: auto;
+	overflow-x: hidden;
+	user-select: none;
+
+	/* PC only */
+}
+
+.b-aform > img {
+	width: 100%;
+}
+
+/* ===== ASIDE MAIN OPTIONS ===== */
+.b-aside > ul.b-aside-options {
+	list-style: none;
+	padding: 12px 0;
+	background-color: rgb(64, 141, 183);
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.b-aside > ul.b-aside-options li {
+	background-color: rgb(55, 122, 164);
+	margin: 5px 0;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.b-aside > ul.b-aside-options li:hover {
+	background-color: rgb(25, 55, 73);
+}
+
+/* ===== ASIDE FORM ===== */
+.b-aside > .b-aform {
+	margin-top: 10px;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+.b-aside > .b-aform > .b-form-control {
+	display: grid;
+	column-gap: 4px;
+	grid-template-columns: auto;
+}
+
+.b-aside > .b-aform > .b-form-control.b-controls-2 {
+	grid-template-columns: repeat(2, auto);
+}
+
+.b-aside > .b-aform > .b-form-control label {
+	padding: 5px 0;
+	text-align: left;
+}
+
+.b-aside > .b-aform > .b-form-control.b-controls-2 label {
+	grid-column: 1 / span 2;
+}
+
+.b-aside > .b-aform > .b-form-control input {
+	border-radius: 2px;
+	outline: none;
+	border: var(--b-border-color) 2px solid;
+	background-color: var(--b-bg-color);
+	color: lightcyan;
+	width: 100%;
+}
+
+.b-aside > .b-aform button,
+.b-aside > .b-aform button:focus {
+	outline: none;
+	border-radius: 2px;
+	border: none;
+	font-size: 16px;
+	padding: 5px 20px;
+	margin-top: 10px;
+	background-color: rgb(0, 146, 198);
+	color: white;
+	cursor: pointer;
+}
+
+.b-aside > .b-aform button:hover {
+	transform: scale(1.1);
+}
+
+/* ===== ASIDE NEWS ===== */
+.b-aside > .b-news {
+	padding: 10px;
+}
+
+.b-aside > .b-news h6 {
+	text-align: center;
+	font-size: 16px;
+	font-weight: normal;
+	border-bottom: lightcyan 1px solid;
+	margin: 10px 0;
+	padding-bottom: 5px;
+}
+
+.b-aside > .b-news ul {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+}
+
+/* --- MOBILE & TABLET VERSION --- */
+@media screen and (max-width: 1000px) {
+	.b-aside {
+		display: none;
+	}
+}
