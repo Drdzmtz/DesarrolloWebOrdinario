@@ -21,4 +21,18 @@ window.addEventListener('load', () => {
 				elm.disabled = true;
 		});
 	});
+
+	// get news
+	$.ajax({
+		type: "GET",
+		url: "/news",
+		success(data) {
+			const news = document.querySelector('.b-aside > .b-news > ul');
+
+			Object.values(data).forEach(dt => 
+				news.appendChild(document.createElement('li'))
+					.innerText = dt.description
+			);
+		}
+	});
 });
