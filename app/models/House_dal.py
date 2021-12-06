@@ -231,3 +231,104 @@ class House_dal():
         res:int = self.cursor.rowcount
         
         return res
+
+    def select_houses_for_status(self):
+
+        query = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO;
+        '''
+
+        query2 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = EN VENTA;
+        '''
+
+        try:
+            self.cursor.execute(query)
+            res = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query2)
+            res2 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        data = [res, res2]
+
+        return data
+    
+    def select_houses_for_prices(self):
+
+        query = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price <= 250000;
+        '''
+
+        query2 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price > 250000 AND price <= 500000;
+        '''
+
+        query3 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price > 500000 AND price <= 750000;
+        '''
+
+        query4 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price > 750000 AND price <= 1000000;
+        '''
+
+        query5 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price > 1000000 AND price <= 1250000;
+        '''
+
+        query6 = f'''
+        SELECT COUNT(*)
+        FROM houses
+        WHERE status = VENDIDO AND price > 1250000 AND price <= 1500000;
+        '''
+
+        try:
+            self.cursor.execute(query)
+            res = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query2)
+            res2 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query3)
+            res3 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query4)
+            res4 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query5)
+            res5 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        try:
+            self.cursor.execute(query6)
+            res6 = self.db.process_query_result(self.cursor)
+        except Exception as e: return str(e)
+
+        data = [res, res2, res3, res4, res5, res6]
+
+        return data
+
