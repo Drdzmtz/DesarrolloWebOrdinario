@@ -26,7 +26,7 @@
 		</div>
 		<div class="form-group">
 			<label for="femail">Correo electronico:</label>
-			<input type="email" id="femail" name="email" class="form-control" placeholder="Ingrese su correo electronico">
+			<input type="text" id="femail" name="email" class="form-control" placeholder="Ingrese su correo electronico">
 		</div>
 		<div class="form-group">
 			<label for="fmessage">Contenido del correo:</label>
@@ -44,5 +44,5 @@
 {% endblock %}
 
 {% block js %}
-	<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+	<script type="module" src="{{ url_for('static', filename='js/contact.js') }}"></script>
 {% endblock %}
