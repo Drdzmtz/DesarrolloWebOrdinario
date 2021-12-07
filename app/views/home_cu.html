@@ -24,19 +24,19 @@
 	</div>
 	<div class="form-group">
 	<label for="frooms">Cuartos:</label>
-	<input type="number" id="frooms" name="rooms" data-real-name="Cuartos" class="form-control" placeholder="Numero de cuartos en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('rooms', '') }}">
+	<input type="number" id="frooms" name="rooms" data-real-name="Cuartos" class="form-control" placeholder="Numero de cuartos en la casa" value="{{ data.get('rooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fbathrooms">Baños:</label>
-		<input type="number" id="fbathrooms" name="bathrooms" data-real-name="Baños" class="form-control" placeholder="Numero de baños en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('bathrooms', '') }}">
+		<input type="number" id="fbathrooms" name="bathrooms" data-real-name="Baños" class="form-control" placeholder="Numero de baños en la casa" value="{{ data.get('bathrooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="flongitude">Longitud:</label>
-		<input type="number" id="flongitude" name="longitude" data-real-name="Longitud" class="form-control" placeholder="Longitud del inmueble (coordenadas)" value="{{ data.get('longitude', '') }}">
+		<input type="text" id="flongitude" name="longitude" data-real-name="Longitud" class="form-control" placeholder="Longitud del inmueble (coordenadas)" value="{{ data.get('longitude', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="flatitude">Latitud:</label>
-		<input type="number" id="flatitude" name="latitude" data-real-name="Latitud" class="form-control" placeholder="Latitud del inmueble (coordenadas)" value="{{ data.get('latitude', '') }}">
+		<input type="text" id="flatitude" name="latitude" data-real-name="Latitud" class="form-control" placeholder="Latitud del inmueble (coordenadas)" value="{{ data.get('latitude', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fdescription">Descripción:</label>

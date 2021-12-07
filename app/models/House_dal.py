@@ -194,8 +194,8 @@ class House_dal():
             state=          form.get("state", ""),
             zip_code=       form.get("zip_code", ""),
             price=          form.get("price", ""),
-            rooms=          form.get("rooms", -1),
-            bathrooms=      form.get("bathrooms", -1),
+            rooms=          form.get("rooms", 0),
+            bathrooms=      form.get("bathrooms", 0),
             longitude=      form.get("longitude", -1.0),
             latitude=       form.get("latitude", -1.0),
             description=    form.get("description", ""),
@@ -215,8 +215,8 @@ class House_dal():
             {house.price}, 
             {house.rooms}, 
             {house.bathrooms}, 
-            {house.longitude}, 
-            {house.latitude}, 
+            '{house.longitude}', 
+            '{house.latitude}', 
             "{house.description}", 
             "{house.status}", 
             "{house.type}"
@@ -225,7 +225,7 @@ class House_dal():
 
         try:
             self.cursor.execute(query)
-        except Exception as e: return str(e)
+        except Exception as e: return str(query)
        
         self.db.client.commit()
         res:int = self.cursor.rowcount
