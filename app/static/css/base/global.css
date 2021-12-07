@@ -6,6 +6,7 @@
 
 ::-webkit-scrollbar {
 	width: 5px;
+	height: 5px;
 }
 
 ::-webkit-scrollbar-track,
@@ -47,4 +48,10 @@ body {
 
 section.b-content {
 	overflow-y: auto;
+}
+
+@media screen and (max-width: 1000px) {
+	section.b-content {
+		grid-column: 1 / span 2;
+	}
 }
