@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, session, render_template
+from flask import Blueprint, jsonify, request, session, render_template, redirect, url_for
 
 from app.controllers import get_properties, add_properties, update_properties
 
@@ -14,6 +14,10 @@ def house_page(id:int):
 
 @properties_routes.route("/editar", methods=["GET"])
 def house_edit_page():
+
+    if not "user" in session:
+        return redirect(url_for("index"))
+
     data = {}
     if request.args.get('id', -1) != -1:
         data = get_properties.get_properties(id=request.args['id']).get('0', {})
