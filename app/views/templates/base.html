@@ -45,9 +45,16 @@
 			<li data-bhref="/casas/buscar">
 				<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar
 			</li>
-			<li data-bhref="/login">
-				<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Entrar
-			</li>
+
+			{% if "user" in session %}
+				<li data-bhref="/logout">
+					<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Salir
+				</li>
+			{% else %}
+				<li data-bhref="/login">
+					<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Entrar
+				</li>
+			{% endif %}
 		</ul>
 
 		<ul class="b-af-options">

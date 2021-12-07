@@ -30,8 +30,8 @@ def login():
 
 
 
-@session_routes.route("/logout", methods=["POST"])
+@session_routes.route("/logout", methods=["GET"])
 def logout():
     session.pop('user', None)
     
-    return render_template("login.html")
+    return redirect("/")
