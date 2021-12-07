@@ -186,10 +186,10 @@ class House_dal():
 
         return res
     
-    def insert_house(self, form:dict):
+    def insert_house(self, form:dict, filename:str):
 
         house = House(
-            photo=          form.get("photo", ""),
+            photo=          filename,
             city=           form.get("city", ""),
             state=          form.get("state", ""),
             zip_code=       form.get("zip_code", ""),
