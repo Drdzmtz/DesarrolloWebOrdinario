@@ -3,25 +3,32 @@
 {% block styles %}{% endblock %}
 
 {% block body %}
-<form>
-	<div class="form-group">
-		<label for="ffull_name">Nombre completo:</label>
-		<input type="text" id="ffull_name" name="full_name" class="form-control" placeholder="Ingrese su nombre completo">
-	</div>
-	<div class="form-group">
-		<label for="femail">Correo electronico:</label>
-		<input type="email" id="femail" name="email" class="form-control" placeholder="Ingrese su correo electronico">
-	</div>
-	<div class="form-group">
-		<label for="fmessage">Contenido del correo:</label>
-		<textarea class="form-control" name="message" id="fmessage">Escriba aquí el contenido del correo.</textarea>
-	</div>
-	<div class="form-group">
-		<label for="fphone_number">Número de celular:</label>
-		<input type="number" maxlength="10" id="fphone_number" name="phone_number" class="form-control" placeholder="Ingrese su numero de celular">
-	</div>
-	<button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+<br><br><br>
+<div class="container">
+	<form id="contact-form">
+		<div class="form-group">
+			<label for="ffull_name">Nombre completo:</label>
+			<input type="text" id="ffull_name" name="full_name" class="form-control" placeholder="Ingrese su nombre completo">
+		</div>
+		<div class="form-group">
+			<label for="femail">Correo electronico:</label>
+			<input type="email" id="femail" name="email" class="form-control" placeholder="Ingrese su correo electronico">
+		</div>
+		<div class="form-group">
+			<label for="fmessage">Contenido del correo:</label>
+			<textarea class="form-control" name="message" id="fmessage" placeholder="Escriba el contenido del mensaje"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="fphone_number">Número de celular:</label>
+			<input type="text" maxlength="10" id="fphone_number" name="phone_number" class="form-control" placeholder="Ingrese su numero de celular">
+		</div>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+</div>
+
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+	<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+{% endblock %}
