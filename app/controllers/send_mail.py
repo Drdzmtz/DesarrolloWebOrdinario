@@ -158,5 +158,5 @@ def send_mail(form:dict):
             mail_sender.send_mail()
     except Exception as e: return {"Success": False, "Error": str(e)}
 
-    return {"Success": True}
+    return {"Success": True, "mensaje": "Correo mandado con exito"}
 
