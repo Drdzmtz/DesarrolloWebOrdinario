@@ -3,58 +3,60 @@
 {% block styles %}{% endblock %}
 
 {% block body %}
-<form>
+<form id="h-form" style="margin: 10px;">
+	<input type="hidden" name="id" value="{{ data.get('id', '') }}">
+
 	<div class="form-group">
 	<label for="fcity">Ciudad:</label>
-	<input type="text" id="fcity" name="city" class="form-control" placeholder="Ciudad donde se ubica">
+	<input type="text" id="fcity" name="city" class="form-control" placeholder="Ciudad donde se ubica" value="{{ data.get('city', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fstate">Estado:</label>
-		<input type="text" id="fstate" name="state" class="form-control" placeholder="Estado donde se ubica">
+		<input type="text" id="fstate" name="state" class="form-control" placeholder="Estado donde se ubica" value="{{ data.get('state', '') }}">
 	</div>
 	<div class="form-group">
 	<label for="fzip_code">Codigo postal:</label>
-	<input type="text" id="fzip_code" name="zip_code" class="form-control" placeholder="Codigo postal donde se ubica">
+	<input type="text" id="fzip_code" name="zip_code" class="form-control" placeholder="Codigo postal donde se ubica" value="{{ data.get('zip_code', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fprice">Precio:</label>
-		<input type="number" id="fprice" name="price" class="form-control" placeholder="Precio de la casa o terreno">
+		<input type="number" id="fprice" name="price" class="form-control" placeholder="Precio de la casa o terreno" value="{{ data.get('price', '') }}">
 	</div>
 	<div class="form-group">
 	<label for="frooms">Cuartos:</label>
-	<input type="number" id="frooms" name="rooms" class="form-control" placeholder="Numero de cuartos en la casa, si es un terreno puede ignorar este campo">
+	<input type="number" id="frooms" name="rooms" class="form-control" placeholder="Numero de cuartos en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('rooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fbathrooms">Baños:</label>
-		<input type="number" id="fbathrooms" name="bathrooms" class="form-control" placeholder="Numero de baños en la casa, si es un terreno puede ignorar este campo">
+		<input type="number" id="fbathrooms" name="bathrooms" class="form-control" placeholder="Numero de baños en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('bathrooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="flongitude">Longitud:</label>
-		<input type="number" id="flongitude" name="longitude" class="form-control" placeholder="Longitud del inmueble (coordenadas)">
+		<input type="number" id="flongitude" name="longitude" class="form-control" placeholder="Longitud del inmueble (coordenadas)" value="{{ data.get('longitude', '') }}">
 	</div>
 	<div class="form-group">
-		<label for="flatitude">Longitud:</label>
-		<input type="number" id="flatitude" name="latitude" class="form-control" placeholder="Latitud del inmueble (coordenadas)">
+		<label for="flatitude">Latitud:</label>
+		<input type="number" id="flatitude" name="latitude" class="form-control" placeholder="Latitud del inmueble (coordenadas)" value="{{ data.get('latitude', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fdescription">Descripción:</label>
-		<textarea class="form-control" name="description" id="fdescription">Escribe aquí la descripción de la casa o terreno</textarea>
+		<textarea class="form-control" name="description" id="fdescription">{{ data.get('description', '') }}</textarea>
 	</div>
 	<div class="form-group">
 		<label for="fstatus">Estado del inmueble:</label>
-		<select class="form-control" id="status" name="fstatus">
-		<option>EN VENTA</option>
-		<option>VENDIDO</option>
+		<select class="form-control" id="status" name="fstatus" value="{{ data.get('status', '') }}">
+			<option>EN VENTA</option>
+			<option>VENDIDO</option>
 		</select>
 	</div>
 	<div class="form-group">
 		<label for="ftype">¿Que tipo de inmueble quiere registrar?</label>
-		<select class="form-control" id="type" name="type">
+		<select class="form-control" id="type" name="type" value="{{ data.get('type', '') }}">
 		<option>CASA</option>
 		<option>TERRENO</option>
 		</select>
 	</div>
-	<div class="form-group">
+	<div class="form-group" style="margin-top: 10px">
 		<label for="fphoto">Suba una foto del inmueble</label>
 		<input type="file" class="form-control-file" id="fphoto" name="photo">
 	</div>
@@ -63,4 +65,6 @@
 
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+	<script src="{{ url_for('static', filename='js/home_cu.js') }}"></script>
+{% endblock %}

@@ -40,7 +40,9 @@
 		</button>
 		
 		<!-- ADMIN ONLY -->
-		<button id="btn-edit" type="button" class="btn"><i class="material-icons">edit</i> Editar</button>
+		<button id="btn-edit" type="button" class="btn" data-href="/casas/editar?id={{ data.get('id', '') }}">
+			<i class="material-icons">edit</i> Editar
+		</button>
 	</div>
 </div>
 
