@@ -1,8 +1,12 @@
-from flask import Blueprint, jsonify, request, session
+from flask import Blueprint, jsonify, request, session, render_template
 
 from app.controllers import get_properties, add_properties, update_properties
 
 properties_routes = Blueprint("properties_routes", __name__)
+
+@properties_routes.route("/buscar", methods=["GET"])
+def houses_page():
+    return render_template("houses.html", filters=request.args)
 
 @properties_routes.route("/", methods=["GET"])
 def houses():

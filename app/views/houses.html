@@ -1,0 +1,74 @@
+{% extends 'templates/base.html' %}
+
+{% block styles %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/houses.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<!-- FILTER -->
+<form id="filter" class="h-form">
+	<img src="{{ url_for('static', filename='images/aform-logo.png') }}">
+
+	<div class="row">
+		<div class="col form-group">
+			<label for="city" class="text-center">Ciudad</label>
+			<input type="text" name="city" placeholder="No importa" value="{{ filters.get('city', '') }}" class="form-control form-control-sm">
+		</div>
+			
+		<div class="col form-group">
+			<label for="state">Estado</label>
+			<input type="text" name="state" placeholder="No importa" value="{{ filters.get('state', '') }}" class="form-control form-control-sm">
+		</div>
+
+		<div class="col form-group">
+			<label for="zip_code">Código Postal</label>
+			<input type="number" name="zip_code" placeholder="No importa" value="{{ filters.get('zip_code', '') }}" class="form-control form-control-sm">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col form-group">
+			<div class="row">
+				<label>Rango de Precios</label>
+				<div class="col">
+					<input type="number" name="min_price" placeholder="Precio Minimo" value="{{ filters.get('min_price', '') }}" class="form-control form-control-sm">
+				</div>
+				<div class="col">
+					<input type="number" name="max_price" placeholder="Precio Máximo" value="{{ filters.get('max_price', '') }}" class="form-control form-control-sm">
+				</div>
+			</div>
+		</div>
+
+		<div class="col form-group">
+			<div class="row">
+				<label>Número de Recámaras y Baños</label>
+				<div class="col">
+					<input type="number" name="rooms" placeholder="Recámaras (No importa)" value="{{ filters.get('rooms', '') }}" class="form-control form-control-sm">
+				</div>
+				<div class="col">
+					<input type="number" name="bathrooms" placeholder="Baños (No importa)" value="{{ filters.get('bathrooms', '') }}" class="form-control form-control-sm">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" name="type" value="{{ filters.type }}">
+
+	<button id="btn-clear" type="button" class="btn"><i class="material-icons">clear_all</i> Borrar Filtros</button>
+	<button type="submit" class="btn"><i class="material-icons">filter_list</i> Filtrar</button>
+	
+	<!-- ADMIN ONLY -->
+	<button id="btn-add" type="button" class="btn"><i class="material-icons">add</i> Añadir</button>
+</form>
+
+
+<!-- HOUSE'S LIST -->
+<div class="h-message"></div>
+<ul class="h-list"></ul>
+
+{% endblock %}
+
+{% block js %}
+	<script src="{{ url_for('static', filename='js/houses.js') }}"></script>
+{% endblock %}

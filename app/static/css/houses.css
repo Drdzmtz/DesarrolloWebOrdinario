@@ -1,0 +1,133 @@
+
+.h-message {
+	text-align: center;
+	font-style: italic;
+	margin: 10px;
+	color: darkblue;
+}
+
+#btn-add {
+	background-color: darkgreen;
+}
+
+#btn-clear {
+	background-color: darkblue;
+}
+
+/* ===== FILTER ===== */
+.h-form {
+	text-align: center;
+	border-bottom: var(--b-border-color) 1px solid;
+	margin: 10px;
+	padding-bottom: 5px;
+}
+
+.h-form label {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	display: block;
+}
+
+.h-form button {
+	background-color: var(--b-bg-scolor);
+	color: white;
+	padding: 2px 20px;
+	margin: 5px;
+}
+
+.h-form button:hover {
+	color: white;
+	transform: scale(1.1);
+}
+
+.h-form button i {
+	font-size: 24px;
+	vertical-align: top;
+}
+
+/* ===== LIST OF HOUSES ===== */
+ul.h-list {
+	margin: 10px;
+	padding: 5px;
+	list-style: none;
+	user-select: none;
+	display: grid;
+	justify-content: center;
+	column-gap: 15px;
+
+	/* PC & tablet only */
+	grid-template-columns: repeat(2, minmax(auto, 520px));
+}
+
+ul.h-list > li {
+	display: grid;
+	outline: darkgray 1px solid;
+	grid-template-columns: 150px auto;
+	grid-template-rows: 130px;
+	border-radius: 5px;
+	overflow: hidden;
+	cursor: pointer;
+	margin: 5px 0;
+}
+
+ul.h-list > li:hover {
+	transform: scale(1.02);
+}
+
+ul.h-list > li > img {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
+
+ul.h-list > li > .h-info {
+	display: grid;
+	grid-template-columns: auto minmax(auto, 200px);
+	padding: 5px;
+	overflow-y: auto;
+}
+
+ul.h-list > li > .h-info > ul {
+	list-style: none;
+	padding: 2px;
+}
+
+ul.h-list > li > .h-info > ul:first-child i.material-icons {
+	font-size: 18px;
+	vertical-align: top;
+}
+
+ul.h-list > li > .h-info > ul:first-child li:nth-child(2) {
+	margin-bottom: 18px;
+}
+
+ul.h-list > li > .h-info > ul:first-child li b {
+	color: var(--b-bg-color);
+	font-size: 14px;
+}
+
+ul.h-list > li > .h-info > ul:last-child {
+	align-self: center;
+	font-size: 18px;
+}
+
+ul.h-list > li > .h-info > ul:last-child i.material-icons {
+	vertical-align: bottom;
+}
+
+ul.h-list > li > .h-info > ul:last-child li {
+	text-align: right;
+}
+
+ul.h-list > li > .h-info > ul:last-child li:last-child {
+	font-size: 14px;
+	color: darkgreen;
+}
+
+/* --- MOBILE VERSION --- */
+@media screen and (max-width: 775px) {
+	ul.h-list {
+		grid-template-columns: minmax(auto, 520px);
+	}
+}
