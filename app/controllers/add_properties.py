@@ -27,8 +27,6 @@ def extract_data(form:dict) -> List[Union[str, bytes]]:
 
 def unique_filename(file_ending:str) -> str:
     random_n_digits = lambda n: randint( 10**(n-1), 10**(n-1))
-
-    # file_ending, photo_bytes = extract_data(photo_data)
        
     filename = f"{datetime.now().date()}_{str(datetime.now().time()).replace(':', '.')}{random_n_digits(3)}"
     filename = f'{filename}.{file_ending}'
