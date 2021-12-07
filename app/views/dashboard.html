@@ -1,0 +1,112 @@
+{% extends 'templates/base.html' %}
+
+{% block styles %}{% endblock %}
+
+{% block body %}
+
+<h1 style="font-weight: bold;"> Dashboards </h1>
+<div></div>
+<div class="container" style="display: flex;">
+    
+    <div style="flex: 0">
+        <h2>Propiedades por estatus y tipo</h2>
+
+        <div style="width: min-content;">
+            <canvas id="graph_sold" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+
+    <div class="container" style="flex: 0;">
+
+        <h2>Propiedades vendidas por rango de precio</h2>
+        <div>
+            <canvas id="graph_costs" width="400" height="400"></canvas>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    const ctx = document.getElementById('graph_sold').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{ labels | safe }},
+            datasets: [{
+                label: ['# of Votes'],
+                data: {{ data | safe }},
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    let data = [
+        {
+            label: {{ price_label1 | safe }},
+            backgroundColor: 'rgba(255, 99, 132, 1)',
+            data: {{ price_data1 | safe }}
+        }, 
+        {
+            label: {{ price_label2 | safe }},
+            backgroundColor: 'rgba(54, 162, 235, 1)',
+            data: {{ price_data2 | safe }}
+        }, 
+        {
+            label: {{ price_label3 | safe }},
+            backgroundColor: 'rgba(255, 206, 86, 1)',
+            data: {{ price_data3 | safe }}
+        },
+        {
+            label:  {{ price_label4 | safe }},
+            backgroundColor: 'rgba(75, 192, 192, 1)',
+            data: {{ price_data4 | safe }}
+        }
+    ];
+    
+    // data = JSON.parse(data);
+
+
+    let cost_chart = new Chart(document.getElementById('graph_costs'), {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Propiedades"],
+        datasets: data
+    },
+    options: {
+        scales: {
+        xAxes: [{
+            ticks: {
+                beginAtZero: true
+                
+            }
+        }]
+        }
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block js %}{% endblock %}
