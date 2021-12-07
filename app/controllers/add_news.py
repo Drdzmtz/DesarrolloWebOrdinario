@@ -9,5 +9,5 @@ def add_news(form:dict):
         res = {"Error": res}
         return res
     
-    return {"Success": f"Successfully added at row: {res}"}
+    return {"Success": "Successfully added"}
 

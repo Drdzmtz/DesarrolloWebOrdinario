@@ -60,5 +60,5 @@ def add_properties(form:dict):
         res = {"Error": err}
         return res
 
-    return {"Success": f"Successfully added at row: {r}"}
+    return {"Success": "Successfully added"}
 

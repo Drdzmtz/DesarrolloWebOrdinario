@@ -1,5 +1,4 @@
-
-from typing import Dict, List
+from typing import Dict
 from app.models.User_dal import User_dal
 from app.models.Mail import Mail_Sender
 
