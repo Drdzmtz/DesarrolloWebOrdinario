@@ -3,5 +3,4 @@ mysql-connector-python
 flask
 geopy
 certifi
-ssl
 fpdf
