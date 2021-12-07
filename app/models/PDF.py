@@ -1,4 +1,5 @@
 from fpdf import FPDF
+from app.config import UPLOADPATH
 
 class Custom_PDF(FPDF):
         
@@ -12,7 +13,6 @@ class Custom_PDF(FPDF):
 
         self.set_fill_color(16, 71, 107)
         self.rect(0, 0, 10, 100, "F")
-
 
         self.image('app/static/images/large-logo.png', 20, 20, 109.25, 10.25)
 
@@ -33,7 +33,7 @@ class PDF():
         pdf.set_margins(20, 40, 20)
         pdf.add_page()
 
-        pdf.image(self.house.photo, 20, 50, 80, 80)
+        pdf.image(f'{UPLOADPATH}{self.house.photo}', 20, 50, 80, 80)
 
         pdf.set_font('Arial', 'B', 30)
         pdf.set_xy(150, 10)
@@ -79,8 +79,6 @@ class PDF():
         pdf.set_x(pdf.get_x()+5)
         pdf.cell(40, 10, f'Codigo Postal: {self.house.zip_code}', 0, 2, "L", False,  "")
         pdf.multi_cell(100, 10, f'Direccion: {self.house.address}', "", False,  "")
-        pdf.cell(40, 10, f'    Longitud: {self.house.longitude}',  0, 2, "L", False,  "")
-        pdf.cell(40, 10, f'    Latitud: {self.house.latitude}',  0, 2, "L", False,  "")
 
         pdf.set_y(pdf.get_y()+20)
         pdf.set_fill_color(228, 234, 236)

@@ -5,3 +5,5 @@ DBPASSWORD = ''
 
 EMAILADDRESS = 'bienesraicesmulticasa@gmail.com'
 EMAILPASSWORD = 'desarrolloweb'
+
+UPLOADPATH = "app/static/photos/"
