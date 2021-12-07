@@ -127,8 +127,8 @@ class House_dal():
     def update_info_house(self, form:dict, filename:str):
 
         house = House(
-            id=             filename,
-            photo=          form.get("photo", ""),
+            id=             form.get("id", -1),
+            photo=          filename,
             city=           form.get("city", ""),
             state=          form.get("state", ""),
             zip_code=       form.get("zip_code", ""),
@@ -169,6 +169,7 @@ class House_dal():
         
         return res
     
+    # PUT
     def update_status_house(self, id, status):
 
         query = f'''
