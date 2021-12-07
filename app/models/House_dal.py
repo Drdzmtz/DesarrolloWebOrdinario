@@ -124,10 +124,10 @@ class House_dal():
         return res
 
     
-    def update_info_house(self, form:dict):
+    def update_info_house(self, form:dict, filename:str):
 
         house = House(
-            id=             form.get("id", -1),
+            id=             filename,
             photo=          form.get("photo", ""),
             city=           form.get("city", ""),
             state=          form.get("state", ""),
