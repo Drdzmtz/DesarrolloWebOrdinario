@@ -8,50 +8,50 @@
 
 	<div class="form-group">
 	<label for="fcity">Ciudad:</label>
-	<input type="text" id="fcity" name="city" class="form-control" placeholder="Ciudad donde se ubica" value="{{ data.get('city', '') }}">
+	<input type="text" id="fcity" name="city" data-real-name="Ciudad" class="form-control" placeholder="Ciudad donde se ubica" value="{{ data.get('city', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fstate">Estado:</label>
-		<input type="text" id="fstate" name="state" class="form-control" placeholder="Estado donde se ubica" value="{{ data.get('state', '') }}">
+		<input type="text" id="fstate" name="state" data-real-name="Estado" class="form-control" placeholder="Estado donde se ubica" value="{{ data.get('state', '') }}">
 	</div>
 	<div class="form-group">
 	<label for="fzip_code">Codigo postal:</label>
-	<input type="text" id="fzip_code" name="zip_code" class="form-control" placeholder="Codigo postal donde se ubica" value="{{ data.get('zip_code', '') }}">
+	<input type="text" id="fzip_code" name="zip_code" data-real-name="Codigo Postal" class="form-control" placeholder="Codigo postal donde se ubica" value="{{ data.get('zip_code', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fprice">Precio:</label>
-		<input type="number" id="fprice" name="price" class="form-control" placeholder="Precio de la casa o terreno" value="{{ data.get('price', '') }}">
+		<input type="number" id="fprice" name="price" data-real-name="Precio" class="form-control" placeholder="Precio de la casa o terreno" value="{{ data.get('price', '') }}">
 	</div>
 	<div class="form-group">
 	<label for="frooms">Cuartos:</label>
-	<input type="number" id="frooms" name="rooms" class="form-control" placeholder="Numero de cuartos en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('rooms', '') }}">
+	<input type="number" id="frooms" name="rooms" data-real-name="Cuartos" class="form-control" placeholder="Numero de cuartos en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('rooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fbathrooms">Baños:</label>
-		<input type="number" id="fbathrooms" name="bathrooms" class="form-control" placeholder="Numero de baños en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('bathrooms', '') }}">
+		<input type="number" id="fbathrooms" name="bathrooms" data-real-name="Baños" class="form-control" placeholder="Numero de baños en la casa, si es un terreno puede ignorar este campo" value="{{ data.get('bathrooms', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="flongitude">Longitud:</label>
-		<input type="number" id="flongitude" name="longitude" class="form-control" placeholder="Longitud del inmueble (coordenadas)" value="{{ data.get('longitude', '') }}">
+		<input type="number" id="flongitude" name="longitude" data-real-name="Longitud" class="form-control" placeholder="Longitud del inmueble (coordenadas)" value="{{ data.get('longitude', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="flatitude">Latitud:</label>
-		<input type="number" id="flatitude" name="latitude" class="form-control" placeholder="Latitud del inmueble (coordenadas)" value="{{ data.get('latitude', '') }}">
+		<input type="number" id="flatitude" name="latitude" data-real-name="Latitud" class="form-control" placeholder="Latitud del inmueble (coordenadas)" value="{{ data.get('latitude', '') }}">
 	</div>
 	<div class="form-group">
 		<label for="fdescription">Descripción:</label>
-		<textarea class="form-control" name="description" id="fdescription">{{ data.get('description', '') }}</textarea>
+		<textarea class="form-control" name="description" data-real-name="Descripción" id="fdescription">{{ data.get('description', '') }}</textarea>
 	</div>
 	<div class="form-group">
 		<label for="fstatus">Estado del inmueble:</label>
-		<select class="form-control" id="status" name="fstatus" value="{{ data.get('status', '') }}">
+		<select class="form-control" id="status" name="fstatus" data-real-name="Estado del Inmueble" value="{{ data.get('status', '') }}">
 			<option>EN VENTA</option>
 			<option>VENDIDO</option>
 		</select>
 	</div>
 	<div class="form-group">
 		<label for="ftype">¿Que tipo de inmueble quiere registrar?</label>
-		<select class="form-control" id="type" name="type" value="{{ data.get('type', '') }}">
+		<select class="form-control" id="type" name="type" data-real-name="Tipo de Inmueble" value="{{ data.get('type', '') }}">
 		<option>CASA</option>
 		<option>TERRENO</option>
 		</select>
@@ -60,6 +60,7 @@
 		<label for="fphoto">Suba una foto del inmueble</label>
 		<input type="file" class="form-control-file" id="fphoto" name="photo">
 	</div>
+
 	<button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 
