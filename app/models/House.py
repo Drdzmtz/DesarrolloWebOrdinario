@@ -1,7 +1,14 @@
-from functools import lru_cache
-from geopy.geocoders import Nominatim
+from certifi import where
+import ssl
 
-geolocator = Nominatim(user_agent="ordinario_desarrollo_web")
+from functools import lru_cache
+from geopy.geocoders import Nominatim, options
+
+
+ctx = ssl.create_default_context(cafile=where())
+options.default_ssl_context = ctx
+
+geolocator = Nominatim(user_agent="ordinario_desarrollo_web", scheme= "http")
 
 class House():
     
