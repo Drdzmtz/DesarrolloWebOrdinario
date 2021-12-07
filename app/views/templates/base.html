@@ -33,27 +33,29 @@
 		</div>
 
 		<ul class="bmenu-options">
-			<li>Inicio</li>
-			<li>La Compañía</li>
-			<li>Servicios</li>
-			<li>Requisitos</li>
-			<li>Contactos</li>
+			<li data-bhref="/">Inicio</li>
+			<li data-bhref="/nosotros">La Compañía</li>
+			<li data-bhref="/servicios">Servicios</li>
+			<li data-bhref="/requisitos">Requisitos</li>
+			<li data-bhref="/contacto">Contacto</li>
 		</ul>
 
 		<ul class="b-basic-options">
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
+			<li data-bhref="/"><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
 			<li data-bhref="/casas/buscar">
 				<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar
 			</li>
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin </li>
+			<li data-bhref="/login">
+				<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Entrar
+			</li>
 		</ul>
 
 		<ul class="b-af-options">
 			<li data-bhref="/casas/buscar?type=casa">Compra</li>
 			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
-			<li>Mudanzas</li>
-			<li>Seguros</li>
+			<li data-bhref="/mudanzas">Mudanzas</li>
+			<li data-bhref="/seguros">Seguros</li>
 		</ul>
 	</nav>
 
@@ -68,9 +70,9 @@
 			<li data-bhref="/casas/buscar?type=casa">Compra</li>
 			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
-			<li>Mudanzas</li>
-			<li>Seguros</li>
-			<li><a href="{{ url_for('contact_routes.contact') }}" > Contactos </a></li>
+			<li data-bhref="/mudanzas">Mudanzas</li>
+			<li data-bhref="/seguros">Seguros</li>
+			<li data-bhref="/contacto">Contacto</li>
 		</ul>
 
 		<form class="b-aform" action="/casas/buscar" method="get">
@@ -117,13 +119,13 @@
 		<img src="{{ url_for('static', filename='images/logo.png') }}">
 
 		<ul class="b-footer-options">
-			<li>Inicio</li>
+			<li data-bhref="/">Inicio</li>
 			<li data-bhref="/casas/buscar?type=casa">Compra</li>
 			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
-			<li>Mudanzas</li>
-			<li>Seguros</li>
-			<li>Contactos</li>
+			<li data-bhref="/mudanzas">Mudanzas</li>
+			<li data-bhref="/seguros">Seguros</li>
+			<li data-bhref="/contacto">Contacto</li>
 		</ul>
 
 		<i>Bienes Raíces MultiCasa © 2012</i>

@@ -38,6 +38,7 @@ const loadHouses = (ev) => {
 			}
 
 			const ul = document.querySelector('ul.h-list');
+			const photoUrl = document.getElementById('photo-url').value;
 			const data = Object.values(res);
 
 			ul.innerHTML = '';
@@ -47,11 +48,11 @@ const loadHouses = (ev) => {
 			}
 
 			data.forEach(dt => {
-				const li = ul.appendChild(document.createElement('li'))
+				const li = ul.appendChild(document.createElement('li'));
 				
 				li.addEventListener('click', () => location.href = `/casas/ver/${dt.id}`);
 				li.innerHTML = `
-					<img src="${dt.photo}">
+					<img src="${photoUrl}/${dt.photo}">
 			
 					<div class="h-info">
 						<ul>
