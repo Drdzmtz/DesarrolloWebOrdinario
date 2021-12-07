@@ -23,7 +23,8 @@ def login():
 
     if "user" in session:
         return redirect(url_for("index"))
-
+    
+    session.pop('user', None)
 
     return render_template("login.html")
 
