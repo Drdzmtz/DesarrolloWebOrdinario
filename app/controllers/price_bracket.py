@@ -16,6 +16,4 @@ def price_bracket():
 
     data = dict(labels, **prices)
 
-    print(data)
-
     return {"data": data}    
