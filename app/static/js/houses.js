@@ -3,6 +3,8 @@ window.addEventListener('load', () => {
 	document.getElementById('filter').addEventListener('submit', loadHouses);
 	document.getElementById('btn-clear').addEventListener('click', () => 
 		document.querySelectorAll('#filter input').forEach(ipt => ipt.value = ''));
+
+	document.querySelector('#filter button[type="submit"]').click();
 });
 
 const loadHouses = (ev) => {

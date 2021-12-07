@@ -33,7 +33,7 @@
 		</div>
 
 		<ul class="bmenu-options">
-			<li class="selected">Inicio</li>
+			<li>Inicio</li>
 			<li>La Compañía</li>
 			<li>Servicios</li>
 			<li>Requisitos</li>
@@ -42,13 +42,15 @@
 
 		<ul class="b-basic-options">
 			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Inicio</li>
-			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar</li>
+			<li data-bhref="/casas/buscar">
+				<img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Buscar
+			</li>
 			<li><img src="{{ url_for('static', filename='images/green-btn-icon.png') }}"> Admin </li>
 		</ul>
 
 		<ul class="b-af-options">
-			<li>Compra</li>
-			<li>Construir</li>
+			<li data-bhref="/casas/buscar?type=casa">Compra</li>
+			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
 			<li>Mudanzas</li>
 			<li>Seguros</li>
@@ -63,15 +65,15 @@
 	<!-- MAIN ASIDE -->
 	<aside class="b-aside">
 		<ul class="b-aside-options">
-			<li>Compra</li>
-			<li>Construir</li>
+			<li data-bhref="/casas/buscar?type=casa">Compra</li>
+			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
 			<li>Mudanzas</li>
 			<li>Seguros</li>
 			<li>Contactos</li>
 		</ul>
 
-		<form class="b-aform" action="" method="get">
+		<form class="b-aform" action="/casas/buscar" method="get">
 			<img src="{{ url_for('static', filename='images/aform-logo.png') }}">
 
 			<div class="b-form-control b-controls-2">
@@ -116,8 +118,8 @@
 
 		<ul class="b-footer-options">
 			<li>Inicio</li>
-			<li>Compra</li>
-			<li>Construir</li>
+			<li data-bhref="/casas/buscar?type=casa">Compra</li>
+			<li data-bhref="/casas/buscar?type=terreno">Construir</li>
 			<li>Venta</li>
 			<li>Mudanzas</li>
 			<li>Seguros</li>
