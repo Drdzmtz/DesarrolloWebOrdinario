@@ -21,3 +21,7 @@ def moving():
 @content_routes.route("/seguros")
 def insurances():
     return render_template('insurances.html')
+
+@content_routes.route("/ventas")
+def sales():
+    return render_template('sales.html')

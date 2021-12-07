@@ -1,0 +1,38 @@
+{% extends 'templates/base.html' %}
+
+{% block styles %}{% endblock %}
+
+{% block body %}
+<br><br><br>
+<div class="container">
+
+	<h1>Servicio de ventas</h1>
+	<h5>Por favor llene la siguiente información, a la brevedad será contactado para hablar sobre su inmueble.</h5>
+
+	<form id="contact-form" style="margin-bottom: 10px;">
+		<div class="form-group">
+			<label for="ffull_name">Nombre completo:</label>
+			<input type="text" id="ffull_name" name="full_name" class="form-control" placeholder="Ingrese su nombre completo">
+		</div>
+		<div class="form-group">
+			<label for="femail">Correo electronico:</label>
+			<input type="email" id="femail" name="email" class="form-control" placeholder="Ingrese su correo electronico">
+		</div>
+		<div class="form-group">
+			<label for="fmessage">Descripción del inmueble:</label>
+			<textarea class="form-control" name="message" id="fmessage" placeholder="Describa el inmueble de la mejor forma posible, contando el número de baños y todo lo necesario."></textarea>
+		</div>
+		<div class="form-group">
+			<label for="fphone_number">Número de celular:</label>
+			<input type="text" maxlength="10" id="fphone_number" name="phone_number" class="form-control" placeholder="Ingrese su numero de celular">
+		</div>
+		<br><br>
+		<button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+</div>
+
+{% endblock %}
+
+{% block js %}
+	<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+{% endblock %}
