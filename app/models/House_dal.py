@@ -169,7 +169,6 @@ class House_dal():
         
         return res
     
-    # PUT
     def update_status_house(self, id, status):
 
         query = f'''
@@ -232,3 +231,42 @@ class House_dal():
         res:int = self.cursor.rowcount
         
         return res
+
+    def sold_properties(self):
+        
+        query = f'''
+        SELECT
+            ( SELECT COUNT(*) FROM houses WHERE `type` LIKE "TERRENO" AND `status` LIKE "VENDIDO") "Terrenos Vendidos",
+            ( SELECT COUNT(*) FROM houses WHERE `type` LIKE "TERRENO" AND `status` LIKE "EN VENTA") "Terrenos En Venta",
+            ( SELECT COUNT(*) FROM houses WHERE `type` LIKE "CASA" AND `status` LIKE "VENDIDO") "Casas Vendidas",
+            ( SELECT COUNT(*) FROM houses WHERE `type` LIKE "CASA" AND `status` LIKE "EN VENTA") "Casas en Venta";
+        '''
+
+        try:
+            self.cursor.execute(query)
+            res = self.db.process_query_result(self.cursor)        
+        except Exception as e: return str(e)
+
+        res = {str(i):v for i,v in enumerate(res)}
+
+        return res
+
+    def price_bracket(self):
+
+        query = f'''
+        SELECT
+          ( SELECT COUNT(*) FROM houses WHERE price <= 250000) "precio <= 250000",
+          ( SELECT COUNT(*) FROM houses WHERE price > 250000 AND price <= 500000) "250000 > precio <= 500000",
+          ( SELECT COUNT(*) FROM houses WHERE price > 500000 AND price <= 750000) "500000 > precio <= 750000",
+          ( SELECT COUNT(*) FROM houses WHERE price > 750000) "precio > 750000";
+        '''
+
+        try:
+            self.cursor.execute(query)
+            res = self.db.process_query_result(self.cursor)        
+        except Exception as e: return str(e)
+
+        res = {str(i):v for i,v in enumerate(res)}
+
+        return res
+
