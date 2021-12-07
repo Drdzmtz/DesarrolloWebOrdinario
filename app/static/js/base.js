@@ -23,9 +23,15 @@ window.addEventListener('load', () => {
 	});
 
 	// add redirection functionality to menu buttons
-	document.querySelectorAll('li[data-bhref]').forEach(li =>
-		li.addEventListener('click', ev => location.href = ev.target.dataset.bhref
-	));
+	document.querySelectorAll('[data-bhref]').forEach(btn => {
+		let handler = (ev) => location.href = ev.target.dataset.bhref;
+
+		if (btn.dataset.bhtype === 'tab')
+			handler = (ev) => window.open(ev.target.dataset.bhref);
+
+		// add configured event handler
+		btn.addEventListener('click',  handler);
+	});
 
 	// get news
 	$.ajax({

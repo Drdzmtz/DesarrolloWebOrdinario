@@ -47,7 +47,10 @@ const loadHouses = (ev) => {
 			}
 
 			data.forEach(dt => {
-				ul.appendChild(document.createElement('li')).innerHTML = `
+				const li = ul.appendChild(document.createElement('li'))
+				
+				li.addEventListener('click', () => location.href = `/casas/ver/${dt.id}`);
+				li.innerHTML = `
 					<img src="${dt.photo}">
 			
 					<div class="h-info">

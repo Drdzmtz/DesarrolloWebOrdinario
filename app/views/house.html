@@ -1,0 +1,59 @@
+{% extends 'templates/base.html' %}
+
+{% block styles %}
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/house.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="h-sheet">
+	<img id="photo" src="{{ url_for('static', filename='photos/' + data.get('photo', 'empty.png')) }}" alt="">
+
+	<div class="h-data">
+		<ul>
+			<h6>Información</h6>
+			<li><b>Ciudad:</b>              <i>{{ data.get('city', 'Sin información') }}, {{ data.get('state', 'Sin información') }}</i></li>
+			<li><b>Código Postal:</b>       <i>{{ data.get('zip_code', 'Sin información') }}</i></li>
+			<li><b>Precio:</b>              <i>{{ data.get('price', 'Sin información') }}</i></li>
+			<li><b>Número de Recámaras:</b> <i>{{ data.get('rooms', 'Sin información') }}</i></li>
+			<li><b>Número de Baños:</b>     <i>{{ data.get('bathrooms', 'Sin información') }}</i></li>
+			<li><b>Tipo de Inmueble:</b>    <i>{{ data.get('type', 'Sin información') }}</i></li>
+			<li><b>Estado</b>               <i>{{ data.get('status', 'Sin información') }}</i></li>
+		</ul>
+
+		<ul>
+			<h6>Descripción</h6>
+			<li>{{ data.get('description', 'Sin información') }}</li>
+		</ul>
+	</div>
+
+	<div class="h-map">
+		<div id="map"></div>
+	</div>
+
+	<div class="h-options">
+		<h6>Opciones</h6>
+		<button id="btn-download" type="button" class="btn" data-bhref="/pdf/{{ data.get('id', '-1') }}" data-bhtype="tab">
+			<i class="material-icons">cloud_download</i> Descargar
+		</button>
+		
+		<!-- ADMIN ONLY -->
+		<button id="btn-edit" type="button" class="btn"><i class="material-icons">edit</i> Editar</button>
+	</div>
+</div>
+
+<div id="ephoto">
+	<img src="{{ url_for('static', filename='photos/' + data.get('photo', 'empty.png')) }}">
+</div>
+
+<input type="hidden" id="lat"  value="{{ data.get('latitude', '') }}">
+<input type="hidden" id="long" value="{{ data.get('longitude', '') }}">
+
+{% endblock %}
+
+{% block js %}
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="{{ url_for('static', filename='js/house.js') }}"></script>
+{% endblock %}

@@ -8,6 +8,11 @@ properties_routes = Blueprint("properties_routes", __name__)
 def houses_page():
     return render_template("houses.html", filters=request.args)
 
+@properties_routes.route("/ver/<id>", methods=["GET"])
+def house_page(id:int):
+    return render_template("house.html", data=get_properties.get_properties(id=id).get('0', {}))
+
+
 @properties_routes.route("/", methods=["GET"])
 def houses():
     properties = get_properties.get_properties(args= request.args)
