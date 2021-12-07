@@ -169,6 +169,7 @@ class House_dal():
         
         return res
     
+    # PUT
     def update_status_house(self, id, status):
 
         query = f'''
