@@ -5,6 +5,13 @@ window.addEventListener('load', () => {
 	document.querySelector('#ephoto img').addEventListener('click', ev => ev.target.parentElement.className = '');
 	document.getElementById('photo').addEventListener('click', () => 
 		document.getElementById('ephoto').classList.add('show'));
+
+	document.getElementById('btn-edit').addEventListener('click', ev => {
+		if(!ev.target.dataset.href)
+			return;
+		
+		location.href = ev.target.dataset.href;
+	});
 });
 
 

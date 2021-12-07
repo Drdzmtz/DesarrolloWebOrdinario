@@ -5,6 +5,12 @@ window.addEventListener('load', () => {
 		document.querySelectorAll('#filter input').forEach(ipt => ipt.value = ''));
 
 	document.querySelector('#filter button[type="submit"]').click();
+	document.getElementById('btn-add').addEventListener('click', ev => {
+		if (!ev.target.dataset.href)
+			return;
+
+		location.href = ev.target.dataset.href;
+	})
 });
 
 const loadHouses = (ev) => {

@@ -12,6 +12,14 @@ def houses_page():
 def house_page(id:int):
     return render_template("house.html", data=get_properties.get_properties(id=id).get('0', {}))
 
+@properties_routes.route("/editar", methods=["GET"])
+def house_edit_page():
+    data = {}
+    if request.args.get('id', -1) != -1:
+        data = get_properties.get_properties(id=request.args['id']).get('0', {})
+
+    return render_template("home_cu.html", data=data)
+
 
 @properties_routes.route("/", methods=["GET"])
 def houses():
