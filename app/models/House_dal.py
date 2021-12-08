@@ -215,8 +215,8 @@ class House_dal():
             {house.price}, 
             {house.rooms}, 
             {house.bathrooms}, 
-            '{house.longitude}', 
-            '{house.latitude}', 
+            {house.longitude}, 
+            {house.latitude}, 
             "{house.description}", 
             "{house.status}", 
             "{house.type}"
@@ -225,7 +225,7 @@ class House_dal():
 
         try:
             self.cursor.execute(query)
-        except Exception as e: return str(query)
+        except Exception as e: return str(e)
        
         self.db.client.commit()
         res:int = self.cursor.rowcount

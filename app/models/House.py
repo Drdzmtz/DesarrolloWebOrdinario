@@ -30,7 +30,13 @@ class House():
    @property
    @lru_cache(maxsize= 5, typed=False)
    def address(self) -> str:
-      return geolocator.reverse(f"{self.longitude}, {self.latitude}").address
+
+      try:
+         address = geolocator.reverse(f"{self.longitude}, {self.latitude}").address
+      except:
+         address = "No disponible por el momento"
+
+      return address 
 
    def to_dict(self):
       return {
